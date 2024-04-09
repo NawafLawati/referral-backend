@@ -1,5 +1,7 @@
 // Import the express module
 const express=require('express');
+// const  = require('referral-codes');
+const referralCodes = import('referral-codes')
 // Create an instance of the express application
 const app=express();
 // Specify a port number for the server
@@ -18,13 +20,36 @@ function createPost(id, title, content, author) {
       author: author,
     };
   }
+
+  function createReferral(id, title, count, refund, author) {
+    return {
+      id: id,
+      title: title,
+      count: count,
+      refund: refund,
+      author: author,
+    };
+  }
   
   // Define the data array for the blog posts
-  const posts = [
-    createPost(1, 'Hello World', 'This is my first blog post', 'Alice'),
-    createPost(2, 'Express JS', 'This is a blog post about Express JS', 'Bob'),
-    createPost(3, 'RESTful API', 'This is a blog post about RESTful API', 'Charlie'),
-  ];
+//   const posts = [
+//     createPost(1, 'Hello World', 'This is my first blog post', 'Alice'),
+//     createPost(2, 'Express JS', 'This is a blog post about Express JS', 'Bob'),
+//     createPost(3, 'RESTful API', 'This is a blog post about RESTful API', 'Charlie'),
+//   ];
+referralCodes.then((data) => {
+    console.log(data.generate( { length: 6,
+        count: 1,})); 
+    },
+    (error) => {
+    console.log(error); // prints Error object
+    }
+  );
+
+
+// console.log(code)
+
+
 
   // Create a route and a handler for GET /posts
 app.get('/posts', (req, res) => {

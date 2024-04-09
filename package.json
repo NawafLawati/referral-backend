@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "referral-codes": "^3.0.0"
   }
 }
