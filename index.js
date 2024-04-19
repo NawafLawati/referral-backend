@@ -5,7 +5,7 @@ var cors = require('cors')
 app.use(cors())
 
 const db = require('./queries')
-const port = 3000
+const port = process.env.port || 3000
 
 app.use(bodyParser.json())
 app.use(
