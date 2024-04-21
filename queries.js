@@ -1,11 +1,13 @@
 const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'me',
-  host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
-})
+// const pool = new Pool({
+//   user: 'me',
+//   host: 'dpg-coim36gl5elc73d9s4pg-a',
+//   database: 'api_bkp6',
+//   password: '2zky4A56BoxWrhbyCtN03cci2SKyq535',
+//   port: 5432,
+// })
+const pool = require('./DBConfig');
+
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
     if (error) {
